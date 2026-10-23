@@ -1,8 +1,11 @@
 # Synchronizing Real-Time Face Tracking with Directional Audio Filtering
 
+
 An Audio-Visual Zoom (AV Zoom) experiment in MATLAB. A face detector tracks the speaker in each video frame. The face position is turned into a direction-of-arrival angle, and that angle sets a sample delay for a two-channel delay-and-sum beamformer on the stereo audio. The video is cropped and zoomed around the tracked face, and the processed video and audio are written to one AVI file.
 
+
 ## How it works
+
 
 1. Load an `.mp4` with a stereo audio track and split the audio into one chunk per video frame.
 2. Detect a face in each frame with `vision.CascadeObjectDetector`.
@@ -12,26 +15,30 @@ An Audio-Visual Zoom (AV Zoom) experiment in MATLAB. A face detector tracks the 
 6. Crop the frame around the face, resize it to the original resolution, and write video and audio to an `.avi` with `vision.VideoFileWriter`.
 7. Plot the tracked angle and the applied sample delay per frame.
 
+
 The program processes a prerecorded video frame by frame. The plots show the computed steering angle and the applied integer sample delay.
 
+
 ## Files
+
 
 - `av_zoom.m` - MATLAB program
 - `AV_Zoom_Exp10_Report.pdf` - lab report (Experiment 10)
 - `original_frame.jpg`, `output_frame.jpg`, `analysis_plots.jpg` - original frame, zoomed output frame, and angle/delay analysis plots
 
+
 ## Requirements
+
 
 MATLAB with the Computer Vision Toolbox, and an input `.mp4` that has a two-channel audio track. Edit `inputFile` and `outputFile` at the top of `av_zoom.m`.
 
+
 ## Output
+
 
 | Original frame | Zoomed output frame |
 |---|---|
 | ![Original](original_frame.jpg) | ![Output](output_frame.jpg) |
 
+
 ![Analysis](analysis_plots.jpg)
-
-## Authors
-
-Sankalp Singh Bais, Swastika Chakravorty, Jeslin Elsa Jose
